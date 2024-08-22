@@ -1,2 +1,2 @@
-# kissing_game
+# Boykisser: Kissing Game
  featuring Krosh, Yozhik and Nyusha
