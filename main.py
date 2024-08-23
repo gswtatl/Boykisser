@@ -88,11 +88,11 @@ def main():
             all_sprites.draw(window)
         else:
             window.fill('#25205e')
-            font = pygame.font.Font(dir + 'font.ttf', 90)
-            name = font.render('Boykisser', True, '#82b4ff')
+            font1 = pygame.font.Font(dir + 'font.ttf', 90)
+            name = font1.render('Boykisser', True, '#82b4ff')
             window.blit(name, name.get_rect(center=(350, 200)))
-            lil_font = pygame.font.Font(dir + 'font.ttf', 30)
-            start = lil_font.render('press space to start', True, '#ffffff')
+            font2 = pygame.font.Font(dir + 'font.ttf', 30)
+            start = font2.render('press space to start', True, '#ffffff')
             window.blit(start, start.get_rect(center=(350, 350)))
 
         pygame.display.update()
