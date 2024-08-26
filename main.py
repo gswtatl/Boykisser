@@ -1,14 +1,11 @@
-from typing import Any
 import pygame
-
-dir = 'C:\\Users\\gswtatl\\Downloads\\programming\\python\\kissing_game\\assets\\'
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, enemy):
         super().__init__()
-        self.player_afk = pygame.image.load(dir + 'player_afk.png').convert_alpha()
-        self.player_caught = pygame.image.load(dir + 'player_caught.png').convert_alpha()
-        self.player_kiss = pygame.image.load(dir + 'player_kiss.png').convert_alpha()
+        self.player_afk = pygame.image.load('assets\\player_afk.png').convert_alpha()
+        self.player_caught = pygame.image.load('assets\\player_caught.png').convert_alpha()
+        self.player_kiss = pygame.image.load('assets\\player_kiss.png').convert_alpha()
 
         self.image = self.player_afk
         self.rect = self.image.get_rect(midbottom=(450, 400))
@@ -31,9 +28,9 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        nyusha1 = pygame.image.load(dir + 'nyusha1.png').convert_alpha()
-        nyusha2 = pygame.image.load(dir + 'nyusha2.png').convert_alpha()
-        nyusha3 = pygame.image.load(dir + 'nyusha3.png').convert_alpha()
+        nyusha1 = pygame.image.load('assets\\nyusha1.png').convert_alpha()
+        nyusha2 = pygame.image.load('assets\\nyusha2.png').convert_alpha()
+        nyusha3 = pygame.image.load('assets\\nyusha3.png').convert_alpha()
         
         self.animation_index = 0
         self.frames = [nyusha1, nyusha2, nyusha3]
@@ -52,9 +49,11 @@ class Enemy(pygame.sprite.Sprite):
 
 def main():
     pygame.init()
+    audio = pygame.mixer.Sound('assets\\audio.mp3')
+    audio.play(loops=-1).set_volume(0.5)
     window = pygame.display.set_mode((700, 500))
     pygame.display.set_caption('Boykisser')
-    icon = pygame.image.load(dir + 'icon.png')
+    icon = pygame.image.load('assets\\icon.png')
     pygame.display.set_icon(icon)
     clock = pygame.time.Clock()
 
@@ -82,16 +81,16 @@ def main():
                     game_active = True
 
         if game_active:
-            bg = pygame.image.load(dir + 'bg.png')
+            bg = pygame.image.load('assets\\bg.png')
             window.blit(bg, (0, 0))
             all_sprites.update()
             all_sprites.draw(window)
         else:
             window.fill('#25205e')
-            font1 = pygame.font.Font(dir + 'font.ttf', 90)
+            font1 = pygame.font.Font('assets\\font.ttf', 90)
             name = font1.render('Boykisser', True, '#82b4ff')
             window.blit(name, name.get_rect(center=(350, 200)))
-            font2 = pygame.font.Font(dir + 'font.ttf', 30)
+            font2 = pygame.font.Font('assets\\font.ttf', 30)
             start = font2.render('press space to start', True, '#ffffff')
             window.blit(start, start.get_rect(center=(350, 350)))
 
